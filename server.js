@@ -12,6 +12,9 @@ const User = require("./models/user");
 const usersController = require("./controllers/usersController.js");  
 const Photo = require("./models/photo");  
 const photosController = require("./controllers/photosController.js");
+const Hobby = require("./models/hobby");
+const hobbysController = require("./controllers/hobbysController.js");
+
 //Import the Models and their controller
 
 const cors = require("cors");
@@ -67,6 +70,18 @@ app.delete("/users/:id", usersController.deleteUser);
 // -----------------> Delete a Specific User - [Delete]
 // -------------------------------------------------User routes
 
+// Obj: We want to establish CRUD routes for our Notes Model
+app.get("/hobbys", hobbysController.fetchAllHobbys);
+// -----------------> GET all Hobbys - [Read]
+app.get("/hobbys/:id", hobbysController.fetchHobby);
+// -----------------> GET a Specific Hobby by ID - [Read]
+app.post("/hobbys", hobbysController.createHobby);
+// -----------------> Create a Hobbys - [Create / POST]
+app.put("/hobbys/:id", hobbysController.updateHobby);
+// -----------------> Update a Specific Hobby - [Update]
+app.delete("/hobbys/:id", hobbysController.deleteHobby);
+// -----------------> Delete a Specific Hobby - [Delete]
+// -------------------------------------------------Hobby routes
 // --------------------------------------------------------------Routing
 
 
